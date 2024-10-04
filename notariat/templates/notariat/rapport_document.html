@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Rapport - Document{% endblock title %}
+{% block head_h1 %} Rapport des Paiements {% endblock head_h1 %}
+{% block lien_head %} <a class="active" href="#">Rapport des Paiements</a> {% endblock %}
+{% block lien_droit %}
+    <a href="#" class="btn-download">
+        <i class='bx bxs-cloud-download'></i>
+        <span class="text">Télécharger PDF</span>
+    </a>
+{% endblock lien_droit %}
+{% block content %}
+    <!-- INFO BOXES -->
+    <ul class="box-info">
+        <!-- Total des paiements effectués -->
+        <li>
+            <i class='bx bxs-wallet'></i>
+            <span class="text">
+                <h3>$5000</h3> <!-- Total des paiements collectés -->
+                <p>Total Paiements Collectés</p>
+            </span>
+        </li>
+
+        <!-- Documents payés ce mois -->
+        <li>
+            <i class='bx bxs-folder'></i>
+            <span class="text">
+                <h3>100</h3> <!-- Nombre de documents payés -->
+                <p>Documents Payés</p>
+            </span>
+        </li>
+
+        <!-- Documents non payés -->
+        <li>
+            <i class='bx bxs-time'></i> <!-- Icône -->
+            <span class="text">
+                <h3>50</h3> <!-- Nombre de documents non payés -->
+                <p>Documents Non Payés</p>
+            </span>
+        </li>
+    </ul>
+    <!-- END INFO BOXES -->
+
+    <!-- RAPPORT TABLE -->
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Historique des Paiements</h3>
+                <i class='bx bx-search'></i>
+                <i class='bx bx-filter'></i>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nom du document</th>
+                    <th>Demandeur</th>
+                    <th>Date de paiement</th>
+                    <th>Montant</th>
+                    <th>Statut</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Contrat de Vente</td>
+                    <td>Papa Alain</td>
+                    <td>10-09-2024</td>
+                    <td>$500</td>
+                    <td><span class="status-payee">Payé</span></td>
+                </tr>
+                <tr>
+                    <td>Acte de Propriété</td>
+                    <td>Papa Blaise</td>
+                    <td>12-09-2024</td>
+                    <td>$700</td>
+                    <td><span class="status-payee">Payé</span></td>
+                </tr>
+                <tr>
+                    <td>Testament</td>
+                    <td>Papa Lucien</td>
+                    <td>14-09-2024</td>
+                    <td>$300</td>
+                    <td><span class="status-payee">Payé</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock content %}

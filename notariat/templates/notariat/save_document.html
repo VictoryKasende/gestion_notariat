@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Enregistrer - Document{% endblock title %}
+{% block head_h1 %} Enregistrer document {% endblock head_h1 %}
+{% block lien_head %} <a class="active" href="#">Enregistrer document</a> {% endblock %}
+{% block lien_droit %}
+    <a href="ajouter_demandeur.html" class="btn-download">
+        <i class='bx bx-user-plus'></i> <!-- Remplacement de l'icône ici -->
+        <span class="text">Ajouter un demandeur</span>
+    </a>
+{% endblock lien_droit %}
+{% block content %}
+    <br><div class="form-container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="demandeur">Demandeur :</label>
+                <select id="demandeur" name="demandeur" required>
+                    <option value="client1">Papa Serge</option>
+                    <option value="client2">Papa Clement</option>
+                    <option value="client3">Papa Alain</option>
+                    <option value="client4">Maman Sophie</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="document_name">Nom du document :</label>
+                <input type="text" id="document_name" name="document_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="document_number">Numéro du document :</label>
+                <input type="text" id="document_number" name="document_number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="document_type">Type de document :</label>
+                <select id="document_type" name="document_type" required>
+                    <option value="contrat">Contrat</option>
+                    <option value="acte">Acte notarié</option>
+                    <option value="testament">Testament</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea id="description" name="description" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn" style="width: 200px;">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

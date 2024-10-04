@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Profil Utilisateur - Medpark Clinic{% endblock title %}
+{% block head_h1 %} Profil Utilisateur {% endblock head_h1 %}
+{% block lien_head %} <a class="active" href="#">Profil Utilisateur</a> {% endblock %}
+
+{% block content %}
+    <div class="main-content">
+        <!-- FICHE DE PROFIL -->
+        <div class="profile-container">
+            <h3>Informations du Profil</h3>
+            <div class="profile-header">
+                <img src="{% static 'notariat/assets/images/profil_defaut.png' %}" alt="Photo de Profil"
+                     class="profile-pic">
+                <div class="profile-info">
+                    <h4>Deborah</h4>
+                    <p>Agent</p>
+                    <p>Matricule : UB300</p>
+                </div>
+            </div>
+            <table class="profile-details">
+                <thead>
+                <tr>
+                    <th colspan="2">Détails du Profil</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Email:</td>
+                    <td>deborah@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Téléphone:</td>
+                    <td>998554044</td>
+                </tr>
+                <tr>
+                    <td>Adresse:</td>
+                    <td>123 du Carmel, 300</td>
+                </tr>
+                <tr>
+                    <td>Date de création:</td>
+                    <td>01-09-2024</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- FICHE DE PROFIL -->
+    </div>
+{% endblock content %}

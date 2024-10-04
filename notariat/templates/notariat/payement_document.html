@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Paiement - Document{% endblock title %}
+{% block head_h1 %} Paiement Document {% endblock head_h1 %}
+{% block lien_head %} <a class="active" href="#">Paiement Document</a> {% endblock %}
+
+{% block content %}
+    <br>
+    <div class="form-container">
+        <form action="paiement_process.php" method="post" class="payment-form">
+            <!-- Sélection du document -->
+            <div class="input-group">
+                <label for="document">Document</label>
+                <select id="document" name="document" required>
+                    <option value="" disabled selected>Sélectionnez un document</option>
+                    <option value="Contrat de Vente">Contrat de Vente</option>
+                    <option value="Acte de Propriété">Acte de Propriété</option>
+                    <option value="Testament">Testament</option>
+                </select>
+            </div>
+
+            <!-- Montant -->
+            <div class="input-group">
+                <label for="montant">Montant ($)</label>
+                <input type="number" id="montant" name="montant" placeholder="Entrez le montant" required>
+            </div>
+
+            <!-- Motif -->
+            <div class="input-group">
+                <label for="motif">Motif du Paiement</label>
+                <textarea id="motif" name="motif" rows="4" placeholder="Indiquez le motif du paiement"
+                          required></textarea>
+            </div>
+
+            <!-- Bouton de soumission -->
+            <button type="submit" class="btn-submit">Payer</button>
+        </form>
+    </div>
+{% endblock content %}

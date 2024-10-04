@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Notarier - Document{% endblock title %}
+{% block head_h1 %} Notarier Document {% endblock head_h1 %}
+{% block lien_head %} <a class="active" href="#">Notarier Document</a> {% endblock %}
+
+{% block content %}
+    <!-- INFO BOXES -->
+    <ul class="box-info">
+        <!-- Total des documents enregistrés -->
+        <li>
+            <i class='bx bxs-file'></i>
+            <span class="text">
+                <h3>150</h3> <!-- Exemple : nombre total de documents enregistrés -->
+                <p>Total Documents Enregistrés</p>
+            </span>
+        </li>
+
+        <!-- Documents en attente de notarisation -->
+        <li>
+            <i class='bx bxs-time'></i>
+            <span class="text">
+                <h3>20</h3> <!-- Exemple : documents en attente -->
+                <p>Documents en Attente</p>
+            </span>
+        </li>
+
+        <!-- Total des documents notariés ce mois -->
+        <li>
+            <i class='bx bxs-folder'></i>
+            <span class="text">
+                <h3>80</h3> <!-- Exemple : total des documents notariés -->
+                <p>Documents Notariés</p>
+            </span>
+        </li>
+
+
+    </ul>
+    <!-- END INFO BOXES -->
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <div class="table-data">
+            <div class="order">
+                <div class="head">
+                    <h3>Documents à Notarier</h3>
+                    <i class='bx bx-search'></i>
+                    <i class='bx bx-filter'></i>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Nom du document</th>
+                        <th>Demandeur</th>
+                        <th>Date de création</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Contrat de Vente</td>
+                        <td>Papa Alain</td>
+                        <td>10-09-2024</td>
+                        <td><span class="status-attente">En attente</span></td>
+                        <td>
+                            <button>Notarier</button>
+                            <button>Voir</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Acte de Propriété</td>
+                        <td>Papa Blaise</td>
+                        <td>12-09-2024</td>
+                        <td><span class="status-notarier">Notarier</span></td>
+                        <td>
+                            <button>Notarier</button>
+                            <button>Voir</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Testament</td>
+                        <td>Papa Lucien</td>
+                        <td>14-09-2024</td>
+                        <td><span class="status-payee">Payé</span></td>
+                        <td>
+                            <button>Notarier</button>
+                            <button>Voir</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </main>
+{% endblock content %}

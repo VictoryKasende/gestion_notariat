@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Ajouter un Demandeur{% endblock title %}
+{% block head_h1 %} Ajouter un Demandeur {% endblock head_h1 %}
+{% block lien_head %} <a class="active" href="#">Ajouter un Demandeur</a> {% endblock %}
+
+{% block lien_droit %}
+    <a href="index.html" class="btn-download">
+        <i class='bx bx-arrow-back'></i>
+        <span class="text">Retour</span>
+    </a>
+{% endblock lien_droit %}
+{% block content %}
+    <br>
+    <div class="form-container">
+        <form action="submit_demandeur.html" method="POST">
+            <div class="form-group">
+                <label for="nom_demandeur">Nom du Demandeur :</label>
+                <input type="text" id="nom_demandeur" name="nom_demandeur" required>
+            </div>
+
+            <div class="form-group">
+                <label for="prenom_demandeur">Prénom du Demandeur :</label>
+                <input type="text" id="prenom_demandeur" name="prenom_demandeur" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telephone_demandeur">Téléphone :</label>
+                <input type="tel" id="telephone_demandeur" name="telephone_demandeur" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email_demandeur">Email :</label>
+                <input type="email" id="email_demandeur" name="email_demandeur" required>
+            </div>
+
+            <div class="form-group">
+                <label for="adresse_demandeur">Adresse :</label>
+                <textarea id="adresse_demandeur" name="adresse_demandeur" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn" style="width: 200px;">Ajouter</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
