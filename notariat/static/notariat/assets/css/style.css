@@ -1149,7 +1149,14 @@ button:nth-of-type(2):hover {
 	border-radius: 5px;
 	border: 1px solid var(--red);
 }
-
+.status-archiver {
+	color: var(--dark); /* Utilisation du vert pour le statut "Payé" */
+	font-weight: bold;
+	background-color: var(--light-grey); /* Fond vert clair */
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 1px solid var(--red);
+}
 
 /* Style pour le tableau */
 table {

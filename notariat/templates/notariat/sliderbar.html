@@ -5,36 +5,40 @@
         <span class="text">Notariat System</span>
     </a>
     <ul class="side-menu top">
-        <li class="active">
-            <a href="{% url 'notariat:save_document' %}">
-                <i class='bx bxs-file'></i>
-                <span class="text">Enregistrer document</span>
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'notariat:notarier' %}">
-                <i class='bx bxs-file-plus'></i>
-                <span class="text">Notarier document</span>
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'notariat:gerer_document' %}">
-                <i class='bx bxs-folder-open'></i>
-                <span class="text">Gérer document</span>
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'notariat:payer_document' %}">
-                <i class='bx bxs-credit-card'></i>
-                <span class="text">Paiement document</span>
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'notariat:rapport_document' %}">
-                <i class='bx bxs-bar-chart-alt-2'></i>
-                <span class="text">Rapport</span>
-            </a>
-        </li>
+        {% if request.user.role == 'Secrétaire' %}
+            <li class="active">
+                <a href="{% url 'notariat:save_document' %}">
+                    <i class='bx bxs-file'></i>
+                    <span class="text">Enregistrer document</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'notariat:gerer_document' %}">
+                    <i class='bx bxs-folder-open'></i>
+                    <span class="text">Gérer document</span>
+                </a>
+            </li>
+        {% elif request.user.role == 'Notaire' %}
+            <li>
+                <a href="{% url 'notariat:notarier' %}">
+                    <i class='bx bxs-file-plus'></i>
+                    <span class="text">Notarier document</span>
+                </a>
+            </li>
+        {% elif request.user.role == 'Percepteur' %}
+            <li>
+                <a href="{% url 'notariat:payer_document' %}">
+                    <i class='bx bxs-credit-card'></i>
+                    <span class="text">Paiement document</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'notariat:rapport_document' %}">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Rapport</span>
+                </a>
+            </li>
+        {% endif %}
     </ul>
 
     <ul class="side-menu">

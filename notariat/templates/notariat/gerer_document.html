@@ -5,15 +5,25 @@
 {% block lien_head %} <a class="active" href="#">Gérer Document</a> {% endblock %}
 
 {% block content %}
+    <br>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {% if message.tags %}message-{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
     <!-- INFO BOXES -->
     <ul class="box-info">
         <!-- Total des documents archivés -->
         <li>
             <i class='bx bxs-folder'></i>
             <span class="text">
-		                <h3>80</h3> <!-- Exemple : nombre de documents archivés -->
-		                <p>Documents Archivés</p>
-		            </span>
+                <h3>{{ total_archived }}</h3> <!-- Nombre de documents archivés dynamique -->
+                <p>Documents Archivés</p>
+            </span>
         </li>
     </ul>
     <!-- END INFO BOXES -->
@@ -37,39 +47,53 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Contrat de Vente</td>
-                    <td>Papa Alain</td>
-                    <td>10-09-2024</td>
-                    <td><span class="status-attente">En attente</span></td>
-                    <td>
-                        <button class="btn-modifier">Modifier</button>
-                        <button class="btn-supprimer">Supprimer</button>
-                        <button class="btn-archiver">Archiver</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Acte de Propriété</td>
-                    <td>Papa Blaise</td>
-                    <td>12-09-2024</td>
-                    <td><span class="status-notarier">Notarié</span></td>
-                    <td>
-                        <button class="btn-modifier">Modifier</button>
-                        <button class="btn-supprimer">Supprimer</button>
-                        <button class="btn-archiver">Archiver</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Testament</td>
-                    <td>Papa Lucien</td>
-                    <td>14-09-2024</td>
-                    <td><span class="status-payee">Payé</span></td>
-                    <td>
-                        <button class="btn-modifier">Modifier</button>
-                        <button class="btn-supprimer">Supprimer</button>
-                        <button class="btn-archiver">Archiver</button>
-                    </td>
-                </tr>
+                {% for document in documents %}
+                    <tr>
+                        <td>{{ document.nom }}</td>
+                        <td>{{ document.demandeur.username }}</td>
+                        <td>{{ document.date|date:"d-m-Y" }}</td>
+                        <td>
+                            {% if document.statut == document.STATUT_PAYE %}
+                                <span class="status-payee">{{ document.get_statut_display }}</span>
+                            {% elif document.statut == document.STATUT_NOTARIE %}
+                                <span class="status-notarier">{{ document.get_statut_display }}</span>
+                            {% elif document.statut == document.STATUT_ATTENTE %}
+                                <span class="status-attente">{{ document.get_statut_display }}</span>
+                            {% else %}
+                                <span class="status-archiver">{{ document.get_statut_display }}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <!-- Formulaire pour modifier (seulement si non archivé) -->
+                            {% if document.statut != document.STATUT_ARCHIVE %}
+                                <form action="{% url 'notariat:modifier_document' document.id %}" method="get"
+                                      style="display:inline;">
+                                    <button type="submit" class="btn-modifier">Modifier</button>
+                                </form>
+
+                                <!-- Formulaire pour archiver (seulement si non archivé) -->
+                                <form action="{% url 'notariat:archiver_document' document.id %}" method="get"
+                                      style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" style="background-color: var(--red)">Archiver</button>
+                                </form>
+                            {% else %}
+                                <!-- Si archivé, afficher le bouton "Voir" -->
+                                <form action="{% url 'notariat:detail_document' document.id %}" method="get"
+                                      style="display:inline;">
+                                    <button type="submit" class="btn-voir">Voir</button>
+                                </form>
+                            {% endif %}
+
+                            <!-- Formulaire pour supprimer (toujours disponible) -->
+                            <form action="{% url 'notariat:supprimer_document' document.id %}" method="get"
+                                  style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" style="background-color: var(--orange)">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>

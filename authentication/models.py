@@ -1,7 +1,6 @@
 from django.contrib.auth.models import AbstractUser, Group
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, EmailValidator
 from django.db import models
-
 
 class Utilisateur(AbstractUser):
     DEMANDEUR = 'Demandeur'
@@ -16,7 +15,7 @@ class Utilisateur(AbstractUser):
         (NOTAIRE, 'Notaire'),
     )
 
-    # Ajout des champs supplémentaires
+    # Champs supplémentaires
     profile_photo = models.ImageField(verbose_name='Photo de profil', upload_to='profile_photos/', null=True, blank=True)
     genre = models.CharField(max_length=10, choices=[('M', 'Masculin'), ('F', 'Féminin')])
     telephone = models.CharField(max_length=15, validators=[
@@ -25,6 +24,8 @@ class Utilisateur(AbstractUser):
             message="Le numéro de téléphone doit être entré au format: '+999999999'. Jusqu'à 15 chiffres autorisés."
         )
     ])
+    email = models.EmailField(validators=[EmailValidator()], verbose_name="Email")
+    adresse = models.TextField(verbose_name="Adresse", null=True, blank=True)
     role = models.CharField(max_length=30, choices=ROLE_CHOICES, verbose_name='Rôle')
 
     def save(self, *args, **kwargs):

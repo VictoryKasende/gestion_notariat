@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Supprimer Document {% endblock title %}
+{% block head_h1 %} Supprimer le Document : {{ document.nom }} {% endblock head_h1 %}
+{% block lien_head %} <a href="{% url 'notariat:gerer_document' %}" class="active">Retour à la gestion des documents</a> {% endblock %}
+
+{% block content %}
+
+    <!-- CONFIRMATION SUPPRESSION -->
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Confirmation de Suppression</h3>
+                <i class='bx bx-trash'></i>
+            </div>
+            <div class="content">
+                <p>Vous êtes sur le point de supprimer le document : <strong>{{ document.nom }}</strong>.</p>
+                <p class="text-danger">Cette action est irréversible. Voulez-vous vraiment continuer ?</p>
+
+                <div class="actions">
+                    <form action="{% url 'notariat:supprimer_document' document.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <br><br>
+                        <button type="submit" class="btn-supprimer">Confirmer la suppression</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

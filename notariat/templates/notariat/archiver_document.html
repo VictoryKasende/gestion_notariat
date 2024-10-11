@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Archiver Document {% endblock title %}
+{% block head_h1 %} Archiver le Document : {{ document.nom }} {% endblock head_h1 %}
+{% block lien_head %} <a href="{% url 'notariat:gerer_document' %}" class="active">Retour à la gestion des documents</a> {% endblock lien_head %}
+
+{% block content %}
+
+    <!-- CONFIRMATION ARCHIVAGE -->
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Confirmation de l'archivage</h3>
+                <i class='bx bx-archive'></i>
+            </div>
+            <div class="content">
+                <p>Vous êtes sur le point d'archiver le document : <strong>{{ document.nom }}</strong>.</p>
+                <p class="text-warning">Vous pourrez retrouver ce document dans les archives, mais il ne sera plus modifiable.</p>
+                <br><br>
+                <div class="actions">
+                    <form action="{% url 'notariat:archiver_document' document.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-archiver">Confirmer l'archivage</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

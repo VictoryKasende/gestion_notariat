@@ -7,15 +7,17 @@
 {% block content %}
     <br>
     <div class="form-container">
-        <form action="paiement_process.php" method="post" class="payment-form">
+        <form action="{% url 'notariat:payer_document' %}" method="post" class="payment-form">
+            {% csrf_token %} <!-- Protection CSRF -->
+
             <!-- Sélection du document -->
             <div class="input-group">
                 <label for="document">Document</label>
                 <select id="document" name="document" required>
                     <option value="" disabled selected>Sélectionnez un document</option>
-                    <option value="Contrat de Vente">Contrat de Vente</option>
-                    <option value="Acte de Propriété">Acte de Propriété</option>
-                    <option value="Testament">Testament</option>
+                    {% for document in documents %}
+                        <option value="{{ document.id }}">{{ document.nom }}</option>
+                    {% endfor %}
                 </select>
             </div>
 
@@ -32,6 +34,24 @@
                           required></textarea>
             </div>
 
+            <!-- Mode de paiement -->
+            <div class="input-group">
+                <label for="mode_paiement">Mode de paiement</label>
+                <select id="mode_paiement" name="mode_paiement" required>
+                    <option value="" disabled selected>Sélectionnez le mode de paiement</option>
+                    <option value="Espèces">Espèces</option>
+                    <option value="Carte bancaire">Carte bancaire</option>
+                    <option value="Virement">Virement</option>
+                    <option value="Chèque">Chèque</option>
+                </select>
+            </div>
+
+            <!-- Description supplémentaire -->
+            <div class="input-group">
+                <label for="description">Description supplémentaire (optionnel)</label>
+                <textarea id="description" name="description" rows="3"
+                          placeholder="Ajoutez des détails supplémentaires"></textarea>
+            </div>
             <!-- Bouton de soumission -->
             <button type="submit" class="btn-submit">Payer</button>
         </form>

@@ -7,18 +7,18 @@
 {% block content %}
     <!-- Détails du document -->
     <div class="document-details">
-        <h2>Nom du Document: <span id="doc-name">Contrat de Vente</span></h2>
-        <p><strong>Demandeur:</strong> <span id="doc-owner">Papa Alain</span></p>
-        <p><strong>Date de Création:</strong> <span id="doc-date">10-09-2024</span></p>
-        <p><strong>Statut:</strong> <span id="doc-status">En attente</span></p>
+        <h2>Nom du Document: <span id="doc-name">{{ document.nom }}</span></h2>
+        <p><strong>Demandeur:</strong> <span id="doc-owner">{{ document.demandeur.username }}</span></p>
+        <p><strong>Date de Création:</strong> <span id="doc-date">{{ document.date|date:"d-m-Y" }}</span></p>
+        <p><strong>Statut:</strong> <span id="doc-status">{{ document.get_statut_display }}</span></p>
 
         <!-- Autres informations spécifiques au document -->
-        <p><strong>Description:</strong> Ce contrat de vente établit les termes et conditions régissant la transaction
-            entre le vendeur et l'acheteur, garantissant ainsi la protection des droits de chaque partie.</p>
+        <p><strong>Description:</strong> {{ document.description }}</p>
 
         <!-- Bouton pour retourner à la liste des documents -->
-        <a href="notarier_document.html" class="btn-back">
+        <a href="{% url 'notariat:notarier' %}" class="btn-back">
             <i class='bx bx-left-arrow-alt'></i> Retour à la Liste
         </a>
     </div>
+
 {% endblock content %}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport des Paiements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .box-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .box-info div {
+            width: 30%;
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rapport des Paiements</h1>
+
+    <!-- INFO BOXES -->
+    <div class="box-info">
+        <div>
+            <h3>${{ total_paiements }}</h3>
+            <p>Total Paiements Collectés</p>
+        </div>
+        <div>
+            <h3>{{ documents_payes }}</h3>
+            <p>Documents Payés</p>
+        </div>
+        <div>
+            <h3>{{ documents_non_payes }}</h3>
+            <p>Documents Non Payés</p>
+        </div>
+    </div>
+
+    <!-- RAPPORT TABLE -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nom du document</th>
+                <th>Demandeur</th>
+                <th>Date de paiement</th>
+                <th>Montant</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recu in recus %}
+            <tr>
+                <td>{{ recu.document.nom }}</td>
+                <td>{{ recu.utilisateur.get_full_name }}</td>
+                <td>{{ recu.date_recu }}</td>
+                <td>${{ recu.montant }}</td>
+                <td>Payé</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

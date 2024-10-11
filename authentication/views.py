@@ -22,11 +22,11 @@ class CustomLoginView(LoginView):
 
         # Redirection pour les Percepteurs vers une page spécifique
         elif user.role == 'Percepteur':
-            return reverse('perception:dashboard')  # Modifiez cette URL pour la page appropriée
+            return reverse('notariat:payer_document')  # Modifiez cette URL pour la page appropriée
 
         # Redirection pour les Secrétaires vers une page spécifique
         elif user.role == 'Secrétaire':
-            return reverse('secretariat:dashboard')  # Modifiez cette URL pour la page appropriée
+            return reverse('notariat:save_document')  # Modifiez cette URL pour la page appropriée
 
         # Redirection pour les Demandeurs vers une page spécifique
         elif user.role == 'Demandeur':
@@ -38,19 +38,10 @@ class CustomLoginView(LoginView):
 
 @login_required
 def profil(request):
-    user = request.user
-
-    if request.method == 'POST':
-        form = ProfilForm(request.POST, request.FILES, instance=user)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Votre profil a été mis à jour avec succès.")
-            return redirect('profil')
-        else:
-            messages.error(request, "Veuillez corriger les erreurs ci-dessous.")
-    else:
-        form = ProfilForm(instance=user)
-
-    return render(request, 'authentication/profil.html', {'form': form})
+    user = request.user  # Récupérer l'utilisateur connecté
+    context = {
+        'user': user  # Passez l'utilisateur au contexte
+    }
+    return render(request, 'authentication/profil.html', context)
 
 

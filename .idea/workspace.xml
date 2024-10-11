@@ -4,44 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b60f759-3c3c-46e6-90b7-1a4d30988663" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gestion_notariat.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication/templates/authentication/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication/templates/authentication/profil.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authentication/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_notariat/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_notariat/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_notariat/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_notariat/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestion_notariat/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/static/notariat/assets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/static/notariat/assets/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/static/notariat/assets/bootstrap/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/static/notariat/assets/bootstrap/js/slim.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/static/notariat/assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/static/notariat/assets/images/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/static/notariat/assets/images/profil_defaut.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/static/notariat/assets/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/add_demandeur.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/detail_document.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/gerer_document.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/navbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/notarier_document.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/payement_document.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/rapport_document.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/save_document.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/sliderbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notariat/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/base_site.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+    <list default="true" id="3b60f759-3c3c-46e6-90b7-1a4d30988663" name="Changes" comment="intital commit">
+      <change afterPath="$PROJECT_DIR$/notariat/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notariat/static/notariat/assets/images/signature_notaire.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/archiver_document.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/modifier_document.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/rapport_document_pdf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/rapport_pdf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notariat/templates/notariat/supprimer_document.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication/templates/authentication/profil.html" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/templates/authentication/profil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion_notariat/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_notariat/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/static/notariat/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/static/notariat/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/templates/notariat/add_demandeur.html" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/templates/notariat/add_demandeur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/templates/notariat/detail_document.html" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/templates/notariat/detail_document.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/templates/notariat/gerer_document.html" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/templates/notariat/gerer_document.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/templates/notariat/notarier_document.html" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/templates/notariat/notarier_document.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/templates/notariat/payement_document.html" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/templates/notariat/payement_document.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/templates/notariat/rapport_document.html" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/templates/notariat/rapport_paiement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/templates/notariat/save_document.html" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/templates/notariat/save_document.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/templates/notariat/sliderbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/templates/notariat/sliderbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notariat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notariat/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +48,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;VictoryKasende&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/VictoryKasende/gestion_notariat.git&quot;,
+    &quot;accountId&quot;: &quot;d11e9c60-e622-4f04-949f-749d4421b545&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -119,10 +120,35 @@
       <workItem from="1727859686464" duration="46000" />
       <workItem from="1727948356432" duration="29000" />
       <workItem from="1728032402708" duration="828000" />
+      <workItem from="1728064102294" duration="397000" />
+      <workItem from="1728293217059" duration="7538000" />
+      <workItem from="1728382284026" duration="5482000" />
+      <workItem from="1728564196701" duration="1443000" />
     </task>
+    <task id="LOCAL-00001" summary="intital commit">
+      <option name="closed" value="true" />
+      <created>1728064333855</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1728064333855</updated>
+    </task>
+    <task id="LOCAL-00002" summary="intital commit">
+      <option name="closed" value="true" />
+      <created>1728064454038</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728064454038</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="intital commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="intital commit" />
   </component>
 </project>

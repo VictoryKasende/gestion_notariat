@@ -4,10 +4,10 @@
 {% block head_h1 %} Rapport des Paiements {% endblock head_h1 %}
 {% block lien_head %} <a class="active" href="#">Rapport des Paiements</a> {% endblock %}
 {% block lien_droit %}
-    <a href="#" class="btn-download">
-        <i class='bx bxs-cloud-download'></i>
-        <span class="text">Télécharger PDF</span>
-    </a>
+<a href="{% url 'notariat:rapport_paiement_pdf' %}" class="btn-download">
+    <i class='bx bxs-cloud-download'></i>
+    <span class="text">Télécharger PDF</span>
+</a>
 {% endblock lien_droit %}
 {% block content %}
     <!-- INFO BOXES -->
@@ -16,16 +16,16 @@
         <li>
             <i class='bx bxs-wallet'></i>
             <span class="text">
-                <h3>$5000</h3> <!-- Total des paiements collectés -->
+                <h3>${{ total_paiements }}</h3> <!-- Total des paiements collectés -->
                 <p>Total Paiements Collectés</p>
             </span>
         </li>
 
-        <!-- Documents payés ce mois -->
+        <!-- Documents payés -->
         <li>
             <i class='bx bxs-folder'></i>
             <span class="text">
-                <h3>100</h3> <!-- Nombre de documents payés -->
+                <h3>{{ documents_payes }}</h3> <!-- Nombre de documents payés -->
                 <p>Documents Payés</p>
             </span>
         </li>
@@ -34,7 +34,7 @@
         <li>
             <i class='bx bxs-time'></i> <!-- Icône -->
             <span class="text">
-                <h3>50</h3> <!-- Nombre de documents non payés -->
+                <h3>{{ documents_non_payes }}</h3> <!-- Nombre de documents non payés -->
                 <p>Documents Non Payés</p>
             </span>
         </li>
@@ -60,27 +60,15 @@
                 </tr>
                 </thead>
                 <tbody>
+                {% for recu in recus %}
                 <tr>
-                    <td>Contrat de Vente</td>
-                    <td>Papa Alain</td>
-                    <td>10-09-2024</td>
-                    <td>$500</td>
+                    <td>{{ recu.document.nom }}</td>
+                    <td>{{ recu.utilisateur.get_full_name }}</td>
+                    <td>{{ recu.date_recu }}</td>
+                    <td>${{ recu.montant }}</td>
                     <td><span class="status-payee">Payé</span></td>
                 </tr>
-                <tr>
-                    <td>Acte de Propriété</td>
-                    <td>Papa Blaise</td>
-                    <td>12-09-2024</td>
-                    <td>$700</td>
-                    <td><span class="status-payee">Payé</span></td>
-                </tr>
-                <tr>
-                    <td>Testament</td>
-                    <td>Papa Lucien</td>
-                    <td>14-09-2024</td>
-                    <td>$300</td>
-                    <td><span class="status-payee">Payé</span></td>
-                </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>

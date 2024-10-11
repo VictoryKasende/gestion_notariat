@@ -4,23 +4,35 @@
 {% block head_h1 %} Enregistrer document {% endblock head_h1 %}
 {% block lien_head %} <a class="active" href="#">Enregistrer document</a> {% endblock %}
 {% block lien_droit %}
-    <a href="ajouter_demandeur.html" class="btn-download">
-        <i class='bx bx-user-plus'></i> <!-- Remplacement de l'icône ici -->
+    <a href="{% url 'notariat:add_demandeur' %}" class="btn-download">
+        <i class='bx bx-user-plus'></i>
         <span class="text">Ajouter un demandeur</span>
     </a>
 {% endblock lien_droit %}
 {% block content %}
-    <br><div class="form-container">
+    <br>
+    <!-- Afficher les messages -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {% if message.tags %}message-{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="form-container">
         <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="demandeur">Demandeur :</label>
                 <select id="demandeur" name="demandeur" required>
-                    <option value="client1">Papa Serge</option>
-                    <option value="client2">Papa Clement</option>
-                    <option value="client3">Papa Alain</option>
-                    <option value="client4">Maman Sophie</option>
+                    {% for demandeur in demandeurs %}
+                        <option value="{{ demandeur.id }}">{{ demandeur.first_name }} {{ demandeur.last_name }}</option>
+                    {% endfor %}
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="document_name">Nom du document :</label>
                 <input type="text" id="document_name" name="document_name" required>
@@ -34,11 +46,15 @@
             <div class="form-group">
                 <label for="document_type">Type de document :</label>
                 <select id="document_type" name="document_type" required>
-                    <option value="contrat">Contrat</option>
-                    <option value="acte">Acte notarié</option>
-                    <option value="testament">Testament</option>
-                    <option value="autre">Autre</option>
+                    {% for value, label in TYPE_CHOICES %}
+                        <option value="{{ value }}">{{ label }}</option>
+                    {% endfor %}
                 </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fichier">Télécharger un fichier :</label>
+                <input type="file" id="fichier" name="fichier" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
             </div>
 
             <div class="form-group">

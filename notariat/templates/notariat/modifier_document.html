@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Modifier - Document {% endblock title %}
+{% block head_h1 %} Modifier le document : {{ document.nom }} {% endblock head_h1 %}
+{% block lien_head %}
+    <a class="active" href="{% url 'notariat:gerer_document' %}">Retour à la gestion des documents</a>
+{% endblock lien_head %}
+
+{% block content %}
+    <br>
+    <!-- Afficher les messages -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {% if message.tags %}message-{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="form-container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="nom">Nom du document :</label>
+                <input type="text" id="nom" name="nom" value="{{ form.nom.value }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="demandeur">Demandeur :</label>
+                <select id="demandeur" name="demandeur" required>
+                    {% for demandeur in demandeurs %}
+                        <option value="{{ demandeur.id }}" {% if demandeur.id == form.demandeur.value %}selected{% endif %}>
+                            {{ demandeur.first_name }} {{ demandeur.last_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date du document :</label>
+                <input type="date" id="date" name="date" value="{{ form.date.value }}">
+            </div>
+
+            <div class="form-group">
+                <label for="statut">Statut :</label>
+                <select id="statut" name="statut" required>
+                    {% for value, label in STATUT_CHOICES %}
+                        <option value="{{ value }}" {% if value == form.statut.value %}selected{% endif %}>
+                            {{ label }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="document_type">Type de document :</label>
+                <select id="document_type" name="type" required>
+                    {% for value, label in TYPE_CHOICES %}
+                        <option value="{{ value }}" {% if value == form.type.value %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea id="description" name="description" rows="4">{{ form.description.value }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="fichier">Télécharger un fichier :</label>
+                <input type="file" id="fichier" name="fichier" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+            </div>
+
+            <div class="form-group" style="text-align: center">
+                <button type="submit" class="btn" style="width: 1000px;">Enregistrer les modifications</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
